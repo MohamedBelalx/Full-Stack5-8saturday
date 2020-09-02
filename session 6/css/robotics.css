@@ -3,7 +3,10 @@
     margin: 0;
     padding: 0;
 }
-
+body
+{
+    height: 3000px;
+}
 .container
 {
     width: 80%;
@@ -16,6 +19,9 @@
     width: 100%;
     height: 60px;
     background-color: rgba(138, 144, 255, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .nav-logo
@@ -44,9 +50,10 @@
     display: inline-block;
     line-height: 60px;
     padding: 0px 20px;
-    color: whitesmoke;
+    color: white;
     text-transform: capitalize;
     transition: all 0.5s;
+    font-family: sans-serif;
 }
 
 .nav-content ul li:hover
@@ -54,3 +61,44 @@
     color: #333;
 }
 /* End NavBar */
+/* Start Header */
+.header
+{
+    width: 100%;
+    height: 750px;
+    background-image: url('../img/banner-bg.jpg');
+    background-size: cover;
+}
+.header .container
+{
+    position: relative;
+    top: 200;
+}
+
+.header-content
+{
+    width: 50%;
+    float: left;
+    color: white;
+}
+.header-content h1
+{
+    font-size: 80px;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    font-weight: 300;
+}
+
+.header-content button
+{
+    padding: 10px 25px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.header-img
+{
+    width: 50%;
+    float: right;
+}
+/* End Header */
