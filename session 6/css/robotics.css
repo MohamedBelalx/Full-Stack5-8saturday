@@ -3,10 +3,7 @@
     margin: 0;
     padding: 0;
 }
-body
-{
-    height: 3000px;
-}
+
 .container
 {
     width: 80%;
@@ -157,3 +154,80 @@ body
     background-color: white;
 }
 /* End Product */
+
+/* Start About */
+.about
+{
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+}
+.about-img
+{
+    width: 50%;
+    float: left;
+}
+.about-img img
+{
+    width: 100%;
+}
+.about-content
+{
+    width: 50%;
+    float: left;
+}
+/* End About */
+
+/* Start Sponser */
+
+.sponser img
+{
+    width: 15%;
+    margin: 2%;
+}
+
+/* End Sponser */
+
+
+/* Start Footer */
+.footer
+{
+    width: 100%;
+    height: 350px;
+    background-image: url('../img/footer-bg.jpg');
+    margin-top: 35px;
+    color: whitesmoke;
+    padding-top: 30px;
+    font-family: sans-serif;
+}
+.top-product
+{
+    width: 25%;
+    float: left;
+}
+.footer ul
+{
+    list-style: none;
+    margin-top: 20px;
+}
+.footer ul li
+{
+    margin-top: 10px;
+}
+
+.contact
+{
+    width: 50%;
+    float: left;
+}
+.contact input
+{
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 15px;
+}
+.insta h4
+{
+    margin-bottom: 10px;
+}
+/* End Footer */
