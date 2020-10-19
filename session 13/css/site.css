@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
 }
+:root
+{
+    --animation-duration: 2s;
+    --animate-delay:0s;
+}
 .container
 {
     width: 80%;
@@ -128,4 +133,42 @@ nav li:hover
     {
         margin-right: -500px;
     }
+}
+.animation
+{
+    width: 50%;
+    height: 500px;
+    background-color: red;
+    opacity: 0;
+}
+
+
+.pr
+{
+    width: 100%;
+    height: auto;
+
+}
+.d-flex
+{
+    display: flex;
+}
+.justify-content-center
+{
+    justify-content: center;
+    flex-wrap:wrap;
+    flex-grow: 2;
+}
+.divs
+{
+    width: 50%;
+    height: 400px;
+    background-image: url('../img/portfolio-1.jpg');
+    background-size: cover;
+    transition: all 1s;
+
+}
+.divs:hover
+{
+    transform: scale(0.9);
 }

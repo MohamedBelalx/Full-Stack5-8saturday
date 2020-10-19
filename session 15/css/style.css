@@ -1,3 +1,7 @@
+:root {
+    --animate-duration: 2s;
+    --animate-delay: 0.9s;
+}
 nav
 {
     width: 100%;
@@ -38,6 +42,10 @@ header h1
     font-size: 60px;
     color: dodgerblue;
 }
+.features .container
+{
+    opacity: 0;
+}
 img
 {
     max-width: 100%;
@@ -72,5 +80,11 @@ img
 }
 .follow h1
 {
-    color: white;
+    color: white
+    ;
+}
+
+.review .row
+{
+    opacity: 0;
 }
