@@ -8,6 +8,17 @@
 <body>
     <div class="container">
 
+    <?php
+    
+
+        if(isset($_GET['error']))
+        {
+            echo "<div class='alert alert-danger'>Please Login First To acess</div>";
+        }
+    
+    
+    ?>
+
         <form action="login.php" method='POST'>
             <div class="form-group">
                 <label for="">Enter Your E-Mail</label>
@@ -42,7 +53,10 @@
             if($result->num_rows > 0)
             {
                 session_start();
-                $_SESSION['name'] = 'firstlogin';
+                while($rows = $result->fetch_assoc())
+                {
+                    $_SESSION['id'] = $rows['id']; // pass user id inside the session info
+                }
                 header('location:home.php'); // redirect user to home page
             }else
             {

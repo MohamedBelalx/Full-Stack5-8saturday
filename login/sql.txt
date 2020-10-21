@@ -1,0 +1,10 @@
+CREATE TABLE books(
+	
+    id int PRIMARY KEY AUTO_INCREMENT,
+    pages int not null,
+    details text not null,
+    asset text not null,
+    user_id int NOT null,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+
+)
