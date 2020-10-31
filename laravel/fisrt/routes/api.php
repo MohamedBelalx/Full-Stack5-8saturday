@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get('/all','TaskApiController@index');
+Route::get('/all/{id}','TaskApiController@show');
+Route::post('/all/store','TaskApiController@store');
+Route::delete('/all/destroy/{id}','TaskApiController@destroy');
+Route::patch('/all/update/{id}','TaskApiController@update');
