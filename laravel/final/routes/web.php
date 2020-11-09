@@ -14,14 +14,33 @@
 Route::get('/', function () {
     return view('welcome');
 });
+/*user routes*/
 
+
+Route::get('/index','IndexController@index')->name('index');
+
+
+
+
+
+
+
+/*user routes*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/create','ProductController@create')->name('create');
 Route::get('/all','ProductController@index')->name('all');
-Route::get('/trashed','ProductController@trashed')->name('trashed');
+Route::get('/trash/{id}','ProductController@trash')->name('trash');
+Route::get('/edit/{id}','ProductController@edit')->name('edit');
 Route::post('/insert','ProductController@store')->name('product.insert');
+Route::post('/update/{id}','ProductController@update')->name('product.update');
+
+Route::get('/trashed','ProductController@trashed')->name('trashed');
+Route::get('/restore/{id}','ProductController@restore')->name('restore');
+Route::get('/destroy/{id}','ProductController@destroy')->name('destroy');
+
+
 
 /* category routes */
 Route::get('/category','CategoryController@index')->name('category');

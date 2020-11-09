@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
 class ProductController extends Controller
@@ -14,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.all');
+        $products = DB::table('product')
+        ->join('category','category.id','=','product.category_id')
+        ->select('product.*','category.name as cname')->whereNull('deleted_at')->get();
+        /* select * from product join category on product.category_id=category.id */
+        return view('admin.product.all')->with('products',$products);
     }
 
     /**
@@ -79,7 +84,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $cat = Category::all();
+        return view('admin.product.edit')->with('product',$product)->with('cats',$cat);
     }
 
     /**
@@ -91,7 +98,30 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->name = $request->pname;
+        $product->price = $request->price;
+
+        $product->description = $request->desc;
+        $product->category_id = $request->cat;
+
+        $product->save();
+
+
+        return redirect()->route('all');
+
+    }
+
+
+    public function restore($id)
+    {
+        $product = Product::onlyTrashed($id)->first();
+
+        $product->restore();
+
+
+        return redirect()->back();
     }
 
     /**
@@ -102,10 +132,25 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::onlyTrashed($id)->first();
+
+        $product->forceDelete();
+
+        return redirect()->back();
+
     }
     public function trashed()
     {
-        return view('admin.product.trashed');
+        $products = DB::table('product')
+        ->join('category','category.id','=','product.category_id')
+        ->select('product.*','category.name as cname')->whereNotNull('deleted_at')->get();
+
+        return view('admin.product.trashed')->with('products',$products);
+    }
+    public function trash($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->back();
     }
 }

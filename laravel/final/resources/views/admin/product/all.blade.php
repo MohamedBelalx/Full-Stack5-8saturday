@@ -19,18 +19,20 @@
                         <th scope="col">price</th>
                         <th scope="col">Category</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Trash</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($products as $product)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td><a href="">Edit</a></td>
-                        <td><a href="">Delete</a></td>
+                        <th scope="row">{{$product->id}}</th>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{{$product->cname}}</td>
+                        <td><a href="{{route('edit',['id'=>$product->id])}}">Edit</a></td>
+                        <td><a href="{{route('trash',['id'=>$product->id])}}">Trash</a></td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
