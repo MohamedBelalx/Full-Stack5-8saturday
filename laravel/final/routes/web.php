@@ -19,9 +19,15 @@ Route::get('/', function () {
 
 Route::get('/index','IndexController@index')->name('index');
 
+Route::get('/product/{id}','IndexController@show')->name('show');
 
 
+Route::get('/product/show/all','IndexController@showAll')->name('show.all');
 
+Route::get('/cart','CartController@index')->name('cart');
+Route::post('/cart/add','CartController@add')->name('cart.add');
+Route::get('/cart/delete/{rowId}','CartController@delete')->name('cart.delete');
+Route::get('/cart/reset','CartController@reset')->name('cart.reset');
 
 
 
