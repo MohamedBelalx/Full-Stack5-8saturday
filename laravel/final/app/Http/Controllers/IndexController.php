@@ -33,4 +33,20 @@ class IndexController extends Controller
         
         return view('user.all')->with('products',$products);
     }
+    // search handle
+
+
+    public function search(Request $request)
+    {
+        $word = $request->key;
+
+
+        $products = DB::table('product')
+        ->whereNull('deleted_at')
+        ->where('name','LIKE','%'.$word.'%')
+        ->get();
+
+        //dd($products);
+        return view('user.search')->with('products',$products);
+    }
 }

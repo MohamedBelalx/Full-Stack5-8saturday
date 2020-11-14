@@ -46,3 +46,9 @@ footer p
 {
     margin: 0;
 }
+/* 
+.fade:not(.show)
+{
+    display: none;
+    opacity: 0;
+} */

@@ -30,6 +30,8 @@ Route::get('/cart/delete/{rowId}','CartController@delete')->name('cart.delete');
 Route::get('/cart/reset','CartController@reset')->name('cart.reset');
 
 
+Route::get('/search','IndexController@search')->name('search');
+Route::post('/cart/checkout','CartController@payment')->name('payment');
 
 /*user routes*/
 Auth::routes();

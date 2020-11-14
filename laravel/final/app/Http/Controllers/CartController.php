@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cart;
 use App\Product;
+use Stripe\Stripe;
+use Stripe\Charge;
 class CartController extends Controller
 {
     public function index()
@@ -38,6 +40,26 @@ class CartController extends Controller
     public function reset()
     {
         Cart::destroy();
+        return redirect()->back();
+    }
+
+    // payment
+    public function payment(Request $request)
+    {
+        Stripe::setApiKey('sk_test_LjOUxYxRY0dGwx6GgF3on61R008uWX4wOe');
+
+        Charge::create([
+            'amount' => Cart::subtotal() * 100,
+            'currency' => 'usd',
+            'receipt_email' => $request->email,
+            'source' => $request->stripeToken
+        ]);
+
+
+
+        Cart::destroy();
+
+
         return redirect()->back();
     }
 }

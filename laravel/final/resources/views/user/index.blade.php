@@ -153,7 +153,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="row">
                         @foreach($highest as $h)
@@ -191,6 +191,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
 
     <!-- sample section  -->
